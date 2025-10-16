@@ -5,10 +5,10 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
+        namespace 'com.tinder.scarlet.lifecycle.android'
+
         minSdkVersion rootProject.ext.minSdkVersionAndroidLifecycle
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "${version}"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
