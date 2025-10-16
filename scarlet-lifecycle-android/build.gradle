@@ -19,6 +19,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
+    }
 }
 
 dependencies {
@@ -32,4 +38,14 @@ dependencies {
     testImplementation rootProject.ext.junit
 }
 
-apply plugin: 'com.vanniktech.maven.publish'
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
+}

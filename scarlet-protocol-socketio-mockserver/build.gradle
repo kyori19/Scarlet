@@ -2,7 +2,7 @@
  * © 2018 Match Group, LLC.
  */
 
-apply plugin: 'com.vanniktech.maven.publish'
+apply plugin: 'maven-publish'
 apply plugin: 'kotlin'
 apply plugin: 'java-library'
 
@@ -20,4 +20,12 @@ dependencies {
     testImplementation rootProject.ext.mockito
     testImplementation rootProject.ext.kotlinReflect
     testImplementation rootProject.ext.assertJ
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
 }

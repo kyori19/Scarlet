@@ -1,4 +1,4 @@
-apply plugin: 'com.vanniktech.maven.publish'
+apply plugin: 'maven-publish'
 apply plugin: 'kotlin'
 apply plugin: 'java-library'
 
@@ -12,4 +12,12 @@ dependencies {
     api rootProject.ext.assertJ
     implementation rootProject.ext.rxJava
     implementation rootProject.ext.kotlinStdlib
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
 }
